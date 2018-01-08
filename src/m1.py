@@ -5,7 +5,7 @@ A problem in which to practice:
 
 Authors: Valerie Galluzzi, David Mutchler, Dave Fisher, Amanda Stouder,
          their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import random
@@ -54,6 +54,9 @@ class CircleChanger(object):
      """
 
     def __init__(self, x, y, radius, fill_color, colors):
+        self.circle = rg.Circle(rg.Point(x,y),radius)
+        self.circle.fill_color = fill_color
+        self.colors = colors
         """
         What comes in:
           -- self
@@ -92,7 +95,7 @@ class CircleChanger(object):
         # --------------------------------------------------------------
 
         ################################################################
-        # TODO: 2.
+        # DONE: 2.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_init   function (below).
         #   Third, implement and test this method.
@@ -178,6 +181,8 @@ class CircleChanger(object):
         m1_tests.draw(self, message)
 
     def get_distance_from(self, point):
+        dist = point.get_distance_from(self.circle.center)
+        return dist
         """
         What comes in:
           -- self
@@ -192,7 +197,7 @@ class CircleChanger(object):
             :type point: rg.Point
         """
         ################################################################
-        # TODO: 3.
+        # DONE: 3.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_get_distance_from   function
         #   (below).  Third, implement and test this method.
@@ -203,6 +208,7 @@ class CircleChanger(object):
         ################################################################
 
     def swell_or_shrink_once(self, amount_to_swell_or_shrink):
+
         """
         What comes in:
           -- self
